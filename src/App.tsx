@@ -31,7 +31,7 @@ export default function App() {
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 We are working to bring you amazing software courses.
                 Level up your skills and open doors to new opportunities.
-                Our instuctors are highly experienced engineers from top companies working on unique challanges.
+                Our instructors are highly experienced engineers from top companies working on unique challanges.
               </p>
               <img className="absolute top-4 left-4 w-52" src="/icon.png" />
             </div>

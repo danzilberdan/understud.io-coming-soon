@@ -33,7 +33,7 @@ export default function App() {
                 Level up your skills and open doors to new opportunities.
                 Our instuctors are highly experienced engineers from top companies working on unique challanges.
               </p>
-              <img className="absolute top-4 left-4 w-52" src="/icon.svg" />
+              <img className="absolute top-4 left-4 w-52" src="/icon.png" />
             </div>
           </div>
         </div>

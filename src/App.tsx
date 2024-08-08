@@ -3,13 +3,7 @@ import { useState } from "react";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
 
 export default function App() {
-  const [form, setForm] = useState({
-    email: "",
-  });
   const [signedUp, _] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
     <main className="isolate">

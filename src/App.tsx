@@ -21,7 +21,7 @@ export default function App() {
         </div>
         <div className="py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:text-center">
+            <div className="mx-auto max-w-2xl">
               <h2 className="text-lg font-semibold leading-8 tracking-tight text-yellow-600">
                 🏗️ In the making 🏗️
               </h2>
@@ -33,6 +33,7 @@ export default function App() {
                 Level up your skills and open doors to new opportunities.
                 Our instuctors are highly experienced engineers from top companies working on unique challanges.
               </p>
+              <img className="absolute top-4 left-4 w-52" src="/icon.svg" />
             </div>
           </div>
         </div>

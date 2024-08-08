@@ -6,32 +6,7 @@ export default function App() {
   const [form, setForm] = useState({
     email: "",
   });
-  const [signedUp, setSignedUp] = useState(false);
-
-  const encode = (data: { [key: string]: string }) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]),
-      )
-      .join("&");
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "waitlist", ...form }),
-      });
-      if (response.ok) {
-        setSignedUp(true);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
+  const [signedUp, _] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -54,14 +29,15 @@ export default function App() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:text-center">
               <h2 className="text-lg font-semibold leading-8 tracking-tight text-yellow-600">
-                ✨ New Product Alert! ✨
+                🏗️ In the making 🏗️
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Coming Soon
+                Understud.io will be launching soon!
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                We're working on something new and exciting. We can't wait to
-                share it with you. It's going to blow your mind!
+                We are working to bring you amazing software courses.
+                Level up your skills and open doors to new opportunities.
+                Our instuctors are highly experienced engineers from top companies working on unique challanges.
               </p>
             </div>
           </div>
@@ -94,15 +70,20 @@ export default function App() {
                   Stay in the loop
                 </h2>
                 <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
-                  Sign up to get notified when we're ready to launch.
+                  Sign up to get notified when we launch.
                 </p>
                 <form
-                  onSubmit={handleSubmit}
-                  className="mx-auto mt-10 flex max-w-md gap-x-4"
+                  method="post" action="https://listmonk.danz.blog/subscription/form" 
+                  className="mx-auto mt-10 flex max-w-md gap-x-4 flex-wrap"
                 >
+                  <div className="captcha mb-4">
+                      <div className="h-captcha" data-sitekey="a7c0ddd0-ef70-4f7c-8684-ed2c22329a44"></div>
+                  </div>
+
                   <label htmlFor="email-address" className="sr-only">
                     Email address
                   </label>
+                  <input type="hidden" name="nonce" />
                   <input
                     id="email-address"
                     name="email"
@@ -111,9 +92,13 @@ export default function App() {
                     required
                     className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                     placeholder="Enter your email"
-                    value={form.email}
-                    onChange={handleChange}
                   />
+
+                  <p className="hidden">
+                    <input id="8c590" type="checkbox" name="l" checked value="8c590d10-d8bf-42d7-871d-2791198f3513" />
+                    <label htmlFor="8c590">Understud.io Coming Soon</label>
+                  </p>
+                  
                   <button
                     type="submit"
                     className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -121,7 +106,7 @@ export default function App() {
                     Notify me
                   </button>
                   <svg
-                    className="pointer-events-none absolute right-0 h-48 w-48 -translate-y-3/4 select-none opacity-20 sm:h-96 sm:w-96 sm:-translate-y-1/2"
+                    className="pointer-events-none absolute right-0 h-48 w-48 -translate-y-3/4 select-none opacity-15 sm:h-96 sm:w-96 sm:-translate-y-1/2"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
